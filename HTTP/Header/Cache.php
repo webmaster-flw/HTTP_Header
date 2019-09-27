@@ -19,7 +19,8 @@
 /**
  * Requires HTTP_Header
  */
-require_once 'HTTP/Header.php';
+
+!class_exists('HTTP_Header') && require_once 'HTTP/Header.php';
 
 /**
  * HTTP_Header_Cache
@@ -58,9 +59,9 @@ class HTTP_Header_Cache extends HTTP_Header
      * @param   int     $expires 
      * @param   string  $unit
      */
-    function HTTP_Header_Cache($expires = 0, $unit = 'seconds')
+    function __construct($expires = 0, $unit = 'seconds')
     {
-        parent::HTTP_Header();
+        parent::__construct();
         $this->setHeader('Pragma', 'cache');
         $this->setHeader('Last-Modified', $this->getCacheStart());
         $this->setHeader('Cache-Control', 'private, must-revalidate, max-age=0');
