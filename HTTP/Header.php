@@ -20,7 +20,7 @@
 /**
  * Requires HTTP
  */
-!class_exists('HTTP') && require_once 'HTTP.php';
+!class_exists('HTTP2') && require_once 'HTTP2.php';
 
 /**#@+
  * Information Codes
@@ -107,7 +107,7 @@ define('HTTP_HEADER_STATUS_SERVER_ERROR',5);
  * @access      public
  * @version     $Revision$
  */
-class HTTP_Header extends HTTP
+class HTTP_Header extends HTTP2
 {
     /**
      * Default Headers
