@@ -20,7 +20,7 @@
 /**
  * Requires HTTP
  */
-require_once 'HTTP.php';
+!class_exists('HTTP') && require_once 'HTTP.php';
 
 /**#@+
  * Information Codes
@@ -145,7 +145,7 @@ class HTTP_Header extends HTTP
      * @access  public
      * @return  object  HTTP_Header
      */
-    function HTTP_Header()
+    function __construct()
     {
         if (isset($_SERVER['SERVER_PROTOCOL'])) {
             $this->setHttpVersion(substr($_SERVER['SERVER_PROTOCOL'], -3));
